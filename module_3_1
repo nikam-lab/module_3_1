@@ -1,0 +1,31 @@
+calls = 0
+def count_calls():
+    global calls
+    calls += 1
+
+def string_info(string):
+    argument = str(string)
+    result = (len(argument), argument.upper(), argument.lower())
+    count_calls()
+    return result
+
+def is_contains(string, list_to_search):
+    string = str(string).lower()
+    list_to_search = list(list_to_search)
+    count_calls()
+    for i in range(len(list_to_search)):
+        if str(list_to_search[i]).lower() == string:
+            result = True
+            break
+        else:
+            result = False
+            continue
+    return result
+
+print(string_info('Hakuna_Matata'))
+print(string_info('Choco_Pie'))
+print(string_info('Marlboro'))
+print(is_contains('Nazel', ['FReya', 'FriRen', 'dIktoR', 'nazeL']))
+print(is_contains('top', ['sandr', 'hunter', 'ravenstorp']))
+
+print(calls)
